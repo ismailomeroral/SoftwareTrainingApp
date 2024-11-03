@@ -6,7 +6,6 @@
 **Sistemler**
 - Pencere Sistemi: Birden fazla pencere listeler, aralarında istediğimiz zaman geçiş yapabiliriz ve kapatabiliriz. CodeWindow, ChatWindow, CodeBenchWindow şeklinde 3 farklı pencere türü var.
 - Chat Pencere Sistemi: Gelen verileri chat şeklinde listeler, verilerdeki metinleri okuyarak ilgili kısımları koda çevirme ve metni biçimlendirme. Ek olarak ilgili Chati Kaydetme düğmesi.
-- Code Bench Sistemi: (tamamlanamadı.)
 
 **AI Pencereleri**
 - Ask Now Penceresi: Bu penceredeki konular arasından öğrenmek istediğin konuyu ve anlatım dilini seçip Gemini'ye öğrenmek itediğimiz konuları sorabiliriz. (Yeni Sohbet Pencerisine ilgili kodları ve açıklamaları yazar.)
@@ -21,7 +20,15 @@
 - Copy: Kodu kopyalar.
 - Tab Jump: Kodu yeni bir kod penceresine taşır.
 - Code Bench: (Tamamlanmadı).
-  
+
+
+**Eklemek istediğim ama şuanki halinde olmayan özellikler**
+- Code Bench sistemi: Yapboz şeklindeki kod parçalarını birleştirerek kod yazmak.
+- Code Bench Run: başlangıca bağlı olan kod parça dizisini koda çevirip Gemini ile çıktısını almak.
+- Code penceresindeki Code Bench düğmesi: O penceredeki kodu alıp Geminiden geçirerek Kod dizisine çevirmek.
+
+
+### Uygulma içi görseller:
 ![Ekran görüntüsü 2024-11-03 193047](https://github.com/user-attachments/assets/5d8eebcf-f501-44a1-95b7-39fc4831e53d)
 ![image](https://github.com/user-attachments/assets/7236fae4-9a5f-4c36-ba81-5ab4eace9f84)
 ![image](https://github.com/user-attachments/assets/d8ef7248-5828-4ba4-80d3-13cf0f12c3bf)
