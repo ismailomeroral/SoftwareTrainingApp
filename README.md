@@ -1,1 +1,2 @@
-https://youtu.be/xnYIoNccZFU
+Uygulama tanıtım videosu:
+[https://youtu.be/xnYIoNccZFU](url)
