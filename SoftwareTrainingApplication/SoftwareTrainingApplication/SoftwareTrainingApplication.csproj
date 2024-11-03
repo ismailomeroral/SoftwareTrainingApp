@@ -1,0 +1,328 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F133E4E-F2D3-4F76-BAB7-830A7B6C412B}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SoftwareTrainingApplication</RootNamespace>
+    <AssemblyName>SoftwareTrainingApplication</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="EntityModels\DirInfo.cs" />
+    <Compile Include="EntityModels\Gemini.cs" />
+    <Compile Include="frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMain.Designer.cs">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Chat.cs" />
+    <Compile Include="Models\CodeBench\Parts\ActionBlock.cs" />
+    <Compile Include="Models\CodeBench\Block.cs" />
+    <Compile Include="Models\CodeBench\Parts\ProcessPart.cs" />
+    <Compile Include="Models\CodeBench\Parts\ValuePart.cs" />
+    <Compile Include="Models\FormatedText.cs" />
+    <Compile Include="Models\Forms\AIWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindow.Designer.cs">
+      <DependentUpon>AIWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmAppGen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmAppGen.Designer.cs">
+      <DependentUpon>frmAppGen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmAskNow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmAskNow.Designer.cs">
+      <DependentUpon>frmAskNow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmQuestionLibrary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmQuestionLibrary.Designer.cs">
+      <DependentUpon>frmQuestionLibrary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmSkillCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\AIWindows\frmSkillCheck.Designer.cs">
+      <DependentUpon>frmSkillCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\Desktop.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\Desktop.Designer.cs">
+      <DependentUpon>Desktop.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\DesktopTab\AIChatWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\DesktopTab\AIChatWindow.Designer.cs">
+      <DependentUpon>AIChatWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\DesktopTab\CodeBenchWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\DesktopTab\CodeBenchWindow.Designer.cs">
+      <DependentUpon>CodeBenchWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\DesktopTab\CodeWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\DesktopTab\CodeWindow.Designer.cs">
+      <DependentUpon>CodeWindow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\TESTS\BenchTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\TESTS\BenchTest.Designer.cs">
+      <DependentUpon>BenchTest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Forms\TESTS\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Forms\TESTS\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Request.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Tools\CustomForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Models\Tools\CustomPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\Tools\RotateLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\CategoryListBox\CategoryListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\CategoryListBox\CategoryListBox.Designer.cs">
+      <DependentUpon>CategoryListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserControls\CategoryListBox\CategoryListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\CategoryListBox\CategoryListItem.Designer.cs">
+      <DependentUpon>CategoryListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserControls\CheckListBox\CheckListBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\CheckListBox\CheckListBox.Designer.cs">
+      <DependentUpon>CheckListBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserControls\CheckListBox\CheckListItem.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\CheckListBox\CheckListItem.Designer.cs">
+      <DependentUpon>CheckListItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserControls\DocumentFormatTextBox\CodePanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\DocumentFormatTextBox\CodePanel.Designer.cs">
+      <DependentUpon>CodePanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserControls\DocumentFormatTextBox\DocumentFormatTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\DocumentFormatTextBox\DocumentFormatTextBox.Designer.cs">
+      <DependentUpon>DocumentFormatTextBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserControls\DocumentFormatTextBox\TextPanel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\DocumentFormatTextBox\TextPanel.Designer.cs">
+      <DependentUpon>TextPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserControls\WindowTab.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Models\UserControls\WindowTab.Designer.cs">
+      <DependentUpon>WindowTab.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\AIController.cs" />
+    <Compile Include="EntityModels\Prompts.cs" />
+    <Compile Include="ViewModels\CodeBench\Compiler.cs" />
+    <Compile Include="ViewModels\DesktopController.cs" />
+    <Compile Include="ViewModels\ErrorController.cs" />
+    <Compile Include="ViewModels\GenerateController.cs" />
+    <Compile Include="ViewModels\PatternController.cs" />
+    <Compile Include="ViewModels\RequestDBController.cs" />
+    <Compile Include="ViewModels\Style Models\FormMovedEvent.cs" />
+    <Compile Include="ViewModels\Style Models\StyleEvents.cs" />
+    <Compile Include="ViewModels\SubjectController.cs" />
+    <Compile Include="ViewModels\TextController.cs" />
+    <Compile Include="ViewModels\TimeController.cs" />
+    <EmbeddedResource Include="frmMain.resx">
+      <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\AIWindow.resx">
+      <DependentUpon>AIWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\AIWindows\frmAppGen.resx">
+      <DependentUpon>frmAppGen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\AIWindows\frmAskNow.resx">
+      <DependentUpon>frmAskNow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\AIWindows\frmQuestionLibrary.resx">
+      <DependentUpon>frmQuestionLibrary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\AIWindows\frmSkillCheck.resx">
+      <DependentUpon>frmSkillCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\Desktop.resx">
+      <DependentUpon>Desktop.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\DesktopTab\AIChatWindow.resx">
+      <DependentUpon>AIChatWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\DesktopTab\CodeBenchWindow.resx">
+      <DependentUpon>CodeBenchWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\DesktopTab\CodeWindow.resx">
+      <DependentUpon>CodeWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\TESTS\BenchTest.resx">
+      <DependentUpon>BenchTest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Forms\TESTS\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\Tools\CustomForm.resx">
+      <DependentUpon>CustomForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\CategoryListBox\CategoryListBox.resx">
+      <DependentUpon>CategoryListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\CategoryListBox\CategoryListItem.resx">
+      <DependentUpon>CategoryListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\CheckListBox\CheckListBox.resx">
+      <DependentUpon>CheckListBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\CheckListBox\CheckListItem.resx">
+      <DependentUpon>CheckListItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\DocumentFormatTextBox\CodePanel.resx">
+      <DependentUpon>CodePanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\DocumentFormatTextBox\DocumentFormatTextBox.resx">
+      <DependentUpon>DocumentFormatTextBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\DocumentFormatTextBox\TextPanel.resx">
+      <DependentUpon>TextPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Models\UserControls\WindowTab.resx">
+      <DependentUpon>WindowTab.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="EntityModels\RequestDB.stadb" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chevron Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Down.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Right Button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AILogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chat Message.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Blockly.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Code.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Min.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Normalize.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Maximize.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

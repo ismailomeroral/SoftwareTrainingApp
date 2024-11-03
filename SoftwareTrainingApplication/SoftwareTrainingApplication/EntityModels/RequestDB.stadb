@@ -1,0 +1,44 @@
+
+<request>
+   <id>0oGXgTnymS9qbWTV</id>
+   <title>SkillCheck</title>
+<content><user>isor5</user>C# yazılım bilgilerimi sınamak istiyorum. Şimdiye kadar (Değişkenler - int,Değişkenler - bool ) bu konuları öğrendim.Beni çok zor seviyede zorla. Sonradan ürettiğin örneğin, yazdığım koda göre puanlamanı isteyeceğimden örneğin kodunu yazma.</content>
+<content><user>Gemini</user>## Zorlayıcı C# Mantık Bulmacası
+
+Bir kullanıcıdan aldığın 5 adet **bool** değeri kullanarak bir "hazine sandığı" açıp açamayacağına karar veren bir program hayal et. 
+
+**Kurallar:**
+
+* Kullanıcı 5 soruyu **doğru (true)** veya **yanlış (false)**  cevaplayarak 5 adet **bool** değer üretecek.
+* Bu 5 değeri, isimlendirdiğin **bool** değişkenlerinde sakla.
+* Bu 5 değeri kullanarak, aşağıdaki gizli mantıksal ifadeyi doğrulayacak bir C# kodu yaz:
+
+    **(değer1 VEYA değer2) VE (DEĞİL değer3) VE (değer4 XOR değer5)** 
+
+* Eğer mantıksal ifade **true** değerini üretiyorsa "Hazine sandığı açıldı!" mesajını göster.
+* Eğer mantıksal ifade **false** değerini üretiyorsa "Yanlış kombinasyon, denemeye devam et!" mesajını göster.
+
+**İpuçları:**
+
+* `&&` operatörünü "VE" için kullanabilirsin.
+* `||` operatörünü "VEYA" için kullanabilirsin.
+* `!` operatörünü "DEĞİL" için kullanabilirsin.
+* `^` operatörünü "XOR" için kullanabilirsin.
+* Kullanıcıdan bool değerleri almak için `Console.ReadLine()` fonksiyonunu ve `bool.Parse()` fonksiyonunu kullanabilirsin. 
+
+**Örnek Kullanıcı Girdisi ve Sonuç:**
+
+**Kullanıcının cevapları:** 
+1. Soru: true
+2. Soru: false
+3. Soru: true
+4. Soru: false
+5. Soru: true
+
+**Program çıktısı:**  Hazine sandığı açıldı! 
+
+**Unutma:** Bu sadece örnek bir kullanıcı girdisi. Kodun, **herhangi bir** 5 bool değeri kombinasyonunu doğru bir şekilde değerlendirebilmelidir.
+
+Kolay gelsin! Kendi kodunu yazdıktan sonra bana gösterebilir ve nasıl bir çözüm ürettiğini anlatabilirsin. Sana puan vererek ve kodunu daha da geliştirmen için önerilerde bulunabilirim. 
+</content>
+</request>
