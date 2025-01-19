@@ -193,7 +193,6 @@
     <Compile Include="ViewModels\AIController.cs" />
     <Compile Include="EntityModels\Prompts.cs" />
     <Compile Include="ViewModels\CodeBench\Compiler.cs" />
-    <Compile Include="ViewModels\DesktopController.cs" />
     <Compile Include="ViewModels\ErrorController.cs" />
     <Compile Include="ViewModels\GenerateController.cs" />
     <Compile Include="ViewModels\PatternController.cs" />

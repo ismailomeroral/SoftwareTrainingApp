@@ -42,3 +42,225 @@ Bir kullanıcıdan aldığın 5 adet **bool** değeri kullanarak bir "hazine san
 Kolay gelsin! Kendi kodunu yazdıktan sonra bana gösterebilir ve nasıl bir çözüm ürettiğini anlatabilirsin. Sana puan vererek ve kodunu daha da geliştirmen için önerilerde bulunabilirim. 
 </content>
 </request>
+
+<request>
+   <id>HYd8HtY9nLupD18E</id>
+   <title>AskNow</title>
+<content><user>isor5</user>C# dilinde if, else, else if konusunu bana giriş seviyesinde olanların rahatlıkla anlayacağı bir dilde anlat. Aralara örnekler ekleyebilirsin.</content>
+<content><user>Gemini</user>C#'ta `if`, `else if` ve `else` yapıları, kodunuzun belirli koşullara göre farklı yollar izlemesini sağlar.  Karar verme mekanizması gibi düşünebilirsiniz.
+
+**1. `if` ifadesi:**
+
+En temel yapı `if`'tir. Belirli bir koşul doğruysa,  `if` bloğu içindeki kod çalışır. Koşul yanlışsa, `if` bloğu atlanır.
+
+**Örnek:**
+
+```csharp
+int yas = 15;
+
+if (yas < 18) 
+{
+    Console.WriteLine("Oy kullanamazsınız."); // yas 18'den küçük olduğu için bu satır çalışır.
+}
+
+Console.WriteLine("Program devam ediyor."); // Bu satır her zaman çalışır.
+```
+
+Bu örnekte, `yas` değişkeni 18'den küçük olduğu için `if` bloğundaki kod çalışır ve "Oy kullanamazsınız." mesajı ekrana yazdırılır.  `if` bloğunun dışındaki kod her zaman çalışır.
+
+**2. `else` ifadesi:**
+
+`else`, `if` ile birlikte kullanılır.  `if` koşulu **yanlış** ise, `else` bloğundaki kod çalıştırılır. Yani, `if` bloğu için bir alternatif sunar.
+
+**Örnek:**
+
+```csharp
+int yas = 20;
+
+if (yas < 18)
+{
+    Console.WriteLine("Oy kullanamazsınız.");
+}
+else 
+{
+    Console.WriteLine("Oy kullanabilirsiniz."); // yas 18'den büyük olduğu için bu satır çalışır.
+}
+
+Console.WriteLine("Program devam ediyor."); // Bu satır her zaman çalışır.
+```
+
+Bu örnekte, `yas` değişkeni 18'den büyük olduğu için `if` koşulu yanlıştır. Bu nedenle, `else` bloğundaki kod çalışır ve "Oy kullanabilirsiniz." mesajı ekrana yazdırılır.
+
+**3. `else if` ifadesi:**
+
+Birden fazla koşulu kontrol etmek istediğinizde `else if` kullanırsınız.  `if` koşulu yanlışsa,  sıradaki `else if` koşulu kontrol edilir.  Bu, birden fazla alternatifi test etmenizi sağlar.
+
+**Örnek:**
+
+```csharp
+int not = 75;
+
+if (not >= 85)
+{
+    Console.WriteLine("Harf notunuz: A");
+}
+else if (not >= 70)
+{
+    Console.WriteLine("Harf notunuz: B"); // not 70 ile 85 arasında olduğu için bu satır çalışır.
+}
+else if (not >= 55)
+{
+    Console.WriteLine("Harf notunuz: C");
+}
+else 
+{
+    Console.WriteLine("Harf notunuz: F"); // Hiçbir koşul sağlanmazsa burası çalışır.
+}
+
+Console.WriteLine("Program devam ediyor."); // Bu satır her zaman çalışır.
+
+```
+
+Bu örnekte, `not` değişkeni 75 olduğu için ilk `if` koşulu yanlıştır. Sonraki `else if` koşulu (`not >= 70`) doğrudur, bu nedenle "Harf notunuz: B" mesajı yazdırılır.  Diğer `else if` ve `else` blokları atlanır.
+
+
+**Özet:**
+
+* `if`: Bir koşulu kontrol eder. Doğruysa, bloğundaki kod çalışır.
+* `else`:  `if` koşulu yanlışsa çalışır.
+* `else if`:  `if` koşulu yanlışsa, başka bir koşulu kontrol eder.
+
+Bu yapılar, programlarınızda mantıksal kararlar vermenizi ve kodunuzun farklı durumlarda farklı şekilde davranmasını sağlar. Unutmayın, `else if`  ve `else` ifadeleri isteğe bağlıdır, sadece `if` kullanabilirsiniz.  Ayrıca, birden fazla  `else if`  kullanabilirsiniz.
+</content>
+</request>
+
+<request>
+   <id>AlltZLwpTtjkGYwH</id>
+   <title>SkillCheck</title>
+<content><user>isor5</user>Soru: Bir konsol uygulaması geliştirmeni istiyorum. Bu uygulama kullanıcılardan iki sayı ve bir operatör (+, -, *, /) alsın. Girilen operatöre göre iki sayı üzerinde işlem yapsın ve sonucu ekrana yazdırsın. Kullanıcının geçersiz bir operatör girmesi durumunda, "Geçersiz operatör" mesajını göstersin. Ayrıca, bölme işleminde bölenin sıfır olma durumunu kontrol et ve böyle bir durumda "Bölme işleminde bölen sıfır olamaz!" mesajı görüntüle.  Kullanıcının sayı yerine metin girmesi durumunda da bir hata mesajı ("Lütfen geçerli sayılar giriniz.") vermesini sağla.
+
+İpucu: `Console.ReadLine()` ile kullanıcıdan girdi alabilir, `double.TryParse()` ile girilen değerin sayı olup olmadığını kontrol edebilir,  `switch` yapısı veya `if-else if-else` blokları ile operatörleri değerlendirebilirsiniz.
+
+Başarılar!
+ 
+ 
+ 
+Örneğine karşılık böyle bir kod yazdım. Benim Cevabımda belirtildiği gibi.Benim Cevabım:
+```using System;
+public class HesapMakinesi
+{
+    public static void Main(string[] args)
+    {
+        Console.WriteLine("Basit Hesap Makinesi");
+        while (true)
+        {
+            Console.Write("Birinci sayıyı girin: ");
+            string sayi1Str = Console.ReadLine();
+            Console.Write("İkinci sayıyı girin: ");
+            string sayi2Str = Console.ReadLine();
+            Console.Write("Operatörü girin (+, -, *, /): ");
+            string operatör = Console.ReadLine();
+            if (!double.TryParse(sayi1Str, out double sayi1) || !double.TryParse(sayi2Str, out double sayi2))
+            {
+                Console.WriteLine("Lütfen geçerli sayılar giriniz.");
+                continue; 
+            }
+            double sonuc = 0;
+            bool gecerliOperator = true;
+            switch (operatör)
+            {
+                case "+":
+                    sonuc = sayi1 + sayi2;
+                    break;
+                case "-":
+                    sonuc = sayi1 - sayi2;
+                    break;
+                case "*":
+                    sonuc = sayi1 * sayi2;
+                    break;
+                case "/":
+                    if (sayi2 == 0)
+                    {
+                        Console.WriteLine("Bölme işleminde bölen sıfır olamaz!");
+                        gecerliOperator = false;
+                    }
+                    else
+                    {
+                        sonuc = sayi1 / sayi2;
+                    }
+                    break;
+                default:
+                    Console.WriteLine("Geçersiz operatör.");
+                    gecerliOperator = false;
+                    break;
+            }
+            if (gecerliOperator)
+            {
+                Console.WriteLine("Sonuç: " + sonuc);
+            }
+            Console.WriteLine("Devam etmek için Enter'a basın, çıkmak için herhangi bir tuşa basın.");
+            if (Console.ReadKey().Key != ConsoleKey.Enter)
+            {
+                break;
+            }
+            Console.WriteLine(); 
+        }
+        Console.WriteLine("Başarılar!");
+    }
+}```Senden Soruya göre yazdığım kodu puanlamanı istiyorum.Kodlama Becerisi, Algoritma ve Mantık, Kod Okunabilirliği, Performans ve Verililik, Hata Yönetimi başlıkları altından 0 - 10 aralığında(ondalıklı sayılar dahil) bir puan vermeni istiyorum. 
+Sonrasında hatalarımı, eksiklerimi ve nelerimin geliştirmem gerektiğini bana anlat.</content>
+<content><user>Gemini</user>Kodunuz genel olarak sorulan görevleri yerine getiriyor ve iyi bir başlangıç noktası oluşturuyor. İşte puanlamam ve ardından iyileştirme önerilerim:
+
+**Puanlama:**
+
+* **Kodlama Becerisi:** 7.5/10 - Temel C# dil özelliklerini etkili bir şekilde kullanıyorsunuz.  Değişken tanımlama, operatörler, döngüler ve koşullu ifadeler doğru kullanılmış.
+* **Algoritma ve Mantık:** 8/10 -  Problemi çözmek için uygun bir algoritma seçmişsiniz. `switch` yapısı operatör seçimi için iyi bir tercih.  Sıfırla bölme kontrolü de mantıklı.
+* **Kod Okunabilirliği:** 7/10 - Kod genel olarak okunabilir.  Ancak, biraz daha düzenleme ile daha iyi hale getirilebilir (aşağıdaki önerilere bakın).
+* **Performans ve Verimlilik:** 7/10 -  Bu basit uygulamada performans çok kritik değil, ancak küçük iyileştirmeler yapılabilir (aşağıda açıklanmıştır).
+* **Hata Yönetimi:** 8.5/10 -  `TryParse` kullanımı, sıfırla bölme kontrolü ve geçersiz operatör kontrolü gibi önemli hata durumları ele alınmış.  
+
+**İyileştirme Önerileri ve Eksikler:**
+
+* **Okunabilirliği Artırma:**
+    * Değişken isimlendirmelerini daha açıklayıcı hale getirin.  Örneğin, `sayi1Str` yerine `birinciSayiStr` veya `birinciSayiGirdisi` gibi.
+    * `switch` bloğundaki `gecerliOperator` değişkeni yerine, `default` durumunda  `continue` kullanarak döngünün başına dönebilirsiniz. Bu, kodu biraz daha sade hale getirir.
+* **Performans İyileştirmeleri (Küçük):**
+    * `switch` içindeki her `case` için ayrı ayrı `sonuc` değişkenine atama yapmak yerine, `sonuc`'u switch dışında tanımlayıp, her `case` içinde sadece değeri güncelleyebilirsiniz. Bu, çok küçük bir performans farkı yaratır, ancak iyi bir pratiktir.
+* **Ekstra Özellikler (Opsiyonel):**
+    * Daha fazla operatör desteği ekleyebilirsiniz (%, ^, vb.).
+    * Kullanıcının hesap makinesini istediği zaman kapatmasına izin veren bir çıkış mekanizması ekleyebilirsiniz (örneğin, "q" tuşuna basarak).
+* **`gecerliOperator` Kullanımının Sadeleştirilmesi:**
+ Aşağıdaki gibi `continue` kullanarak kodunuzu daha okunabilir yapabilirsiniz:
+ ```csharp
+ switch (operatör)
+ {
+     case "+":
+         sonuc = sayi1 + sayi2;
+         break;
+     case "-":
+         sonuc = sayi1 - sayi2;
+         break;
+     case "*":
+         sonuc = sayi1 * sayi2;
+         break;
+     case "/":
+         if (sayi2 == 0)
+         {
+             Console.WriteLine("Bölme işleminde bölen sıfır olamaz!");
+             continue; // Döngünün başına dön
+         }
+         sonuc = sayi1 / sayi2;
+         break;
+     default:
+         Console.WriteLine("Geçersiz operatör.");
+         continue; // Döngünün başına dön
+ }
+
+ Console.WriteLine("Sonuç: " + sonuc); // gecerliOperator kontrolüne gerek kalmadı
+ ```
+
+**Sonuç:**
+
+Kodunuz temel gereksinimleri karşılıyor ve çalışır durumda.  Yukarıdaki önerileri uygulayarak kodunuzu daha okunabilir, daha verimli ve daha sağlam hale getirebilirsiniz.  Öğrenmeye ve geliştirmeye devam edin!
+</content>
+</request>

@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlLeftAIMenu = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlAIBody = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.customPanel5 = new SoftwareTrainingApplication.Models.Tools.CustomPanel();
             this.btnAI = new System.Windows.Forms.PictureBox();
             this.customPanel1 = new SoftwareTrainingApplication.Models.Tools.CustomPanel();
@@ -42,14 +39,17 @@
             this.btnAppGen = new SoftwareTrainingApplication.Models.Tools.RotateLabel();
             this.customPanel4 = new SoftwareTrainingApplication.Models.Tools.CustomPanel();
             this.btnLibrary = new SoftwareTrainingApplication.Models.Tools.RotateLabel();
+            this.pnlAIBody = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.pnlLeftAIMenu.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.customPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnAI)).BeginInit();
             this.customPanel1.SuspendLayout();
             this.customPanel2.SuspendLayout();
             this.customPanel3.SuspendLayout();
             this.customPanel4.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlLeftAIMenu
@@ -66,39 +66,6 @@
             this.pnlLeftAIMenu.Name = "pnlLeftAIMenu";
             this.pnlLeftAIMenu.Size = new System.Drawing.Size(46, 729);
             this.pnlLeftAIMenu.TabIndex = 4;
-            // 
-            // pnlAIBody
-            // 
-            this.pnlAIBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlAIBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.pnlAIBody.Location = new System.Drawing.Point(46, 46);
-            this.pnlAIBody.Name = "pnlAIBody";
-            this.pnlAIBody.Size = new System.Drawing.Size(304, 683);
-            this.pnlAIBody.TabIndex = 5;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.panel1.Controls.Add(this.lblTitle);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(46, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(304, 46);
-            this.panel1.TabIndex = 6;
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
-            this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(6, 4);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(181, 39);
-            this.lblTitle.TabIndex = 0;
-            this.lblTitle.Text = "AI Window";
-            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // customPanel5
             // 
@@ -202,7 +169,6 @@
             this.customPanel3.TabIndex = 12;
             this.customPanel3.TopLeftRadius = 10;
             this.customPanel3.TopRightRadius = 0;
-            this.customPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.customPanel3_Paint);
             // 
             // btnAppGen
             // 
@@ -233,7 +199,6 @@
             this.customPanel4.TabIndex = 13;
             this.customPanel4.TopLeftRadius = 10;
             this.customPanel4.TopRightRadius = 0;
-            this.customPanel4.Paint += new System.Windows.Forms.PaintEventHandler(this.customPanel4_Paint);
             // 
             // btnLibrary
             // 
@@ -251,6 +216,39 @@
             this.btnLibrary.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.btnLibrary.Click += new System.EventHandler(this.btnShowLibrary_Click);
             // 
+            // pnlAIBody
+            // 
+            this.pnlAIBody.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlAIBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.pnlAIBody.Location = new System.Drawing.Point(46, 46);
+            this.pnlAIBody.Name = "pnlAIBody";
+            this.pnlAIBody.Size = new System.Drawing.Size(304, 683);
+            this.pnlAIBody.TabIndex = 5;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(55)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(46, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(304, 46);
+            this.panel1.TabIndex = 6;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(6, 4);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(181, 39);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "AI Window";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // AIWindow
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -264,14 +262,14 @@
             this.Name = "AIWindow";
             this.Text = "AIWindow";
             this.pnlLeftAIMenu.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.customPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.btnAI)).EndInit();
             this.customPanel1.ResumeLayout(false);
             this.customPanel2.ResumeLayout(false);
             this.customPanel3.ResumeLayout(false);
             this.customPanel4.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }

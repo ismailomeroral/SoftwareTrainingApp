@@ -14,7 +14,7 @@ using System.Windows.Forms;
 
 namespace SoftwareTrainingApplication.Models.UserControls.DocumentFormatTextBox
 {
-    public partial class CodePanel : UserControl
+    partial class CodePanel : UserControl
     {
         public CodePanel()
         {
@@ -23,6 +23,13 @@ namespace SoftwareTrainingApplication.Models.UserControls.DocumentFormatTextBox
             btnCopy.Click += (s, e) => Clipboard.SetText((textbox.Text != "" ? textbox.Text : " "));
             TextController.AdjustTextBoxHeight(textbox);
         }
+
+        Desktop desk;
+        public void SetDesktop(Desktop _MainDesktop)
+        {
+            desk = _MainDesktop;
+        }
+
         List<Subject> codes = new List<Subject>
         {
             new Subject{name = "string", type = "Variables"},
@@ -198,7 +205,7 @@ namespace SoftwareTrainingApplication.Models.UserControls.DocumentFormatTextBox
             List<Chat> chat = AIController.ListChatHistory(Environment.UserName, Prompts.CodeRun(null, textbox.Text));
             AIController.ListChatHistory(chat, Gemini.Name, await AIController.SendRequestAndGetResponse(chat.First().message, 2));
 
-            DesktopController.AddChatTab(new Request { id = "", title = Text, chats = chat });
+            desk.AddChatTab(new Request { id = "", title = Text, chats = chat });
 
         }
         private async void btnFixIt_Click(object sender, EventArgs e)
@@ -211,7 +218,7 @@ namespace SoftwareTrainingApplication.Models.UserControls.DocumentFormatTextBox
             textbox.Text = TextController.SplitTextIntoCodeAndMessage(chat.Where(b => b.user == Gemini.Name).First().message)
                                                                            .Where(b => b.user == "code").First().message;
 
-            DesktopController.AddChatTab(new Request { id = "", title = Text, chats = chat });
+            desk.AddChatTab(new Request { id = "", title = Text, chats = chat });
         }
 
         private async void btnAsk_Click(object sender, EventArgs e)
@@ -224,16 +231,16 @@ namespace SoftwareTrainingApplication.Models.UserControls.DocumentFormatTextBox
             textbox.Text = TextController.SplitTextIntoCodeAndMessage(chat.Where(b => b.user == Gemini.Name).First().message)
                                                                           .Where(b => b.user == "code").First().message;
 
-            DesktopController.AddChatTab(new Request { id = "", title = Text, chats = chat });
+            desk.AddChatTab(new Request { id = "", title = Text, chats = chat });
         }
 
         private void btnCodeBench_Click(object sender, EventArgs e)
         {
-            DesktopController.AddCodeTab(new WindowTab() { ID = GenerateController.GenerateRandomKey(5), Window = new CodeBenchWindow()});
+            desk.AddCodeTab(new WindowTab() { ID = GenerateController.GenerateRandomKey(5), Window = new CodeBenchWindow() });
         }
         private void btnTabJump_Click(object sender, EventArgs e)
         {
-            DesktopController.AddCodeTab(new WindowTab() { ID = GenerateController.GenerateRandomKey(5), Window = new CodeWindow() { Texts = textbox.Text } });
+            desk.AddCodeTab(new WindowTab() { ID = GenerateController.GenerateRandomKey(5), Window = new CodeWindow() { Texts = textbox.Text } });
         }
     }
 }

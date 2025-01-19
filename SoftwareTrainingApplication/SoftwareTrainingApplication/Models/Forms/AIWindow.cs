@@ -11,22 +11,26 @@ using System.Windows.Forms;
 
 namespace SoftwareTrainingApplication.Models.Forms
 {
-    public partial class AIWindow : Form
+    partial class AIWindow : Form
     {
+        Desktop desk;
 
-        frmAppGen windowAppGen = new frmAppGen();
-        frmAskNow windowAskNow = new frmAskNow();
-        frmSkillCheck windowSkillCheck = new frmSkillCheck();
-        frmQuestionLibrary windowsLibrary = new frmQuestionLibrary();
+        frmAppGen windowAppGen ;
+        frmAskNow windowAskNow;
+        frmSkillCheck windowSkillCheck;
+        frmQuestionLibrary windowsLibrary;
 
-
-        public AIWindow()
+        public AIWindow(Desktop _MainDesktop)
         {
             InitializeComponent();
+            windowAppGen = new frmAppGen(_MainDesktop);
+            windowAskNow = new frmAskNow(_MainDesktop);
+            windowSkillCheck = new frmSkillCheck(_MainDesktop);
+            windowsLibrary = new frmQuestionLibrary(_MainDesktop);
             OpenWindow(windowAskNow);
+
         }
 
-       
         bool IsAIWindowOpen = false;
         private void AIWindowOpenClose()
         {
@@ -75,16 +79,6 @@ namespace SoftwareTrainingApplication.Models.Forms
             pnlAIBody.Controls.Clear();
             pnlAIBody.Controls.Add(frm);
             frm.Show();
-        }
-
-        private void customPanel3_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void customPanel4_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }

@@ -15,15 +15,23 @@ using System.Windows.Forms;
 
 namespace SoftwareTrainingApplication.Models.Forms.AIWindows
 {
-    public partial class frmSkillCheck : Form
+    partial class frmSkillCheck : Form
     {
         TimeController quizTime = new TimeController();
-        public frmSkillCheck()
+        public frmSkillCheck( Desktop _MainDesktop)
         {
             InitializeComponent();
+            desk = _MainDesktop;
 
             SubjectController.ToListByType("code").ForEach(subject => chlistboxSubjects.Add(subject.name));
         }
+
+        Desktop desk;
+        public void SetDesktop(Desktop _MainDesktop)
+        {
+            desk = _MainDesktop;
+        }
+
         bool passedType = false;
         string questionPrompt;
         bool quizState = false;
@@ -62,6 +70,7 @@ namespace SoftwareTrainingApplication.Models.Forms.AIWindows
             quizState = !quizState;
             codeTab.CanItBeClosed = true;
         }
+
         private async void CreateQuizRequest()
         {
             btnStartQuiz.Enabled = false;
@@ -71,7 +80,7 @@ namespace SoftwareTrainingApplication.Models.Forms.AIWindows
             thisRequest.chats = AIController.ListChatHistory(Environment.UserName, Prompts.TestYourself(chlistboxSubjects.CheckedItemToList(), cmboxDifficulty.Text));
             questionPrompt = await AIController.SendRequestAndGetResponse(thisRequest.chats.First().message, 2);
             AIController.ListChatHistory(thisRequest.chats, Gemini.Name, questionPrompt);
-            DesktopController.AddChatTab(new WindowTab { Title = thisRequest.title, ID = thisRequest.id, TabImage = Resources.Chat_Message, CanItBeClosed = false, Window = new AIChatWindow { thisRequest = thisRequest } });
+            desk.AddChatTab(new WindowTab { Title = thisRequest.title, ID = thisRequest.id, TabImage = Resources.Chat_Message, CanItBeClosed = false, Window = new AIChatWindow { thisRequest = thisRequest } });
 
             CreateCodeTabForQuiz();
 
@@ -99,7 +108,7 @@ namespace SoftwareTrainingApplication.Models.Forms.AIWindows
                     FixItButton = false,
                 }
             };
-            DesktopController.AddCodeTab(codeTab);
+            desk.AddCodeTab(codeTab);
         }
         private async void SendYourQuizResponse()
         {
@@ -107,7 +116,7 @@ namespace SoftwareTrainingApplication.Models.Forms.AIWindows
 
             thisRequest.chats = AIController.ListChatHistory(Environment.UserName, Prompts.ControlYourTest(questionPrompt, (codeTab.Window as CodeWindow).Texts));
             AIController.ListChatHistory(thisRequest.chats, Gemini.Name, await AIController.SendRequestAndGetResponse(thisRequest.chats.Last().message, 2));
-            DesktopController.AddToCurrentChatTab(thisRequest, true);
+            desk.AddToCurrentChatTab(thisRequest, true);
             QuizMode();
         }
     }

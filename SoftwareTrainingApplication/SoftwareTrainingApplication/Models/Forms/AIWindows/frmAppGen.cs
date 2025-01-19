@@ -12,24 +12,24 @@ using System.Windows.Forms;
 
 namespace SoftwareTrainingApplication.Models.Forms.AIWindows
 {
-    public partial class frmAppGen : Form
+    partial class frmAppGen : Form
     {
-        public frmAppGen()
+        public frmAppGen(Desktop _MainDesktop)
         {
             InitializeComponent();
+            desk = _MainDesktop;
             this.TopLevel = false;
         }
-
+        Desktop desk;
         private async void btnGenerateApp_Click(object sender, EventArgs e)
         {
             if (!ErrorController.CheckForInternetConnection())
                 return;
 
-
             List<Chat> chat = AIController.ListChatHistory(Environment.UserName, Prompts.CreateApplication(txtprompt.Text, cmboxdetail.Text));
 
             AIController.ListChatHistory(chat, Gemini.Name, await AIController.SendRequestAndGetResponse(chat.First().message, 2));
-            DesktopController.AddChatTab(new Request { id = "", title = Text, chats = chat });
+            desk.AddChatTab(new Request { id = "", title = Text, chats = chat });
         }
     }
 }

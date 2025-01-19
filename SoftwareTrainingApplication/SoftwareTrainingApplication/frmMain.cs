@@ -12,6 +12,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,13 +21,15 @@ namespace SoftwareTrainingApplication
 {
     partial class frmMain : CustomForm
     {
-        AIWindow aiWindow = new AIWindow();
-        Desktop desktopWindow = new Desktop();
+        AIWindow aiWindow;
+        Desktop desktopWindow;
         public frmMain()
         {
             InitializeComponent();
             FormMovedEvent fME = new FormMovedEvent();
-            fME.SetForm(this, pnlBar);
+
+            desktopWindow = new Desktop();
+            aiWindow = new AIWindow(desktopWindow);
 
             btnCloseApp.MouseEnter += StyleEvents.Object_MouseEnter;
             btnMax.MouseEnter += StyleEvents.Object_MouseEnter;
@@ -36,15 +39,13 @@ namespace SoftwareTrainingApplication
             btnMax.MouseLeave += StyleEvents.Object_MouseLeave;
             btnMin.MouseLeave += StyleEvents.Object_MouseLeave;
 
+
             OpenWindow(aiWindow, pnlAIWindow);
             OpenWindow(desktopWindow, pnlDesktopWindow);
 
-            desktopWindow.AddTab(new WindowTab
-            {
-                Title = " Yeni Code Penceresi",
-                Window = new CodeWindow()
-            });
-            DesktopController.SetDesktop(desktopWindow);
+            fME.SetForm(this, pnlBar);
+
+            desktopWindow.AddCodeTab("Yeni Code Penceresi");
         }
         private void AllWindowOpen()
         {
@@ -86,11 +87,11 @@ namespace SoftwareTrainingApplication
         }
         private void codeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DesktopController.AddCodeTab("Code");
+            desktopWindow.AddCodeTab("Code");
         }
         private void codeBenchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DesktopController.AddCodeBenchTab("Code Bench");
+            desktopWindow.AddCodeBenchTab("Code Bench");
         }
     }
 }

@@ -11,17 +11,23 @@ using System.Windows.Forms;
 
 namespace SoftwareTrainingApplication.Models.Forms.AIWindows
 {
-    public partial class frmQuestionLibrary : Form
+    partial class frmQuestionLibrary : Form
     {
-        public frmQuestionLibrary()
+        Desktop desk;
+        public frmQuestionLibrary(Desktop _MainDesktop)
         {
             InitializeComponent();
+            desk = _MainDesktop;
             foreach (var item in RequestDBController.ToList())
                 listboxMyLibrary.Items.Add(item.id);
         }
+        public void SetDesktop(Desktop _MainDesktop)
+        {
+            desk = _MainDesktop;
+        }
         private void btnShowChat_Click(object sender, EventArgs e)
         {
-            DesktopController.AddChatTab(RequestDBController.FindRequest(listboxMyLibrary.Text));
+            desk.AddChatTab(RequestDBController.FindRequest(listboxMyLibrary.Text));
         }
     }
 }

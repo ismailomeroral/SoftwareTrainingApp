@@ -1,4 +1,6 @@
-﻿using SoftwareTrainingApplication.Models.UserControls;
+﻿using SoftwareTrainingApplication.Models.Forms.DesktopTab;
+using SoftwareTrainingApplication.Models.UserControls;
+using SoftwareTrainingApplication.Properties;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,7 +13,7 @@ using System.Windows.Forms;
 
 namespace SoftwareTrainingApplication.Models.Forms
 {
-    public partial class Desktop : Form
+    partial class Desktop : Form
     {
         public Desktop()
         {
@@ -33,12 +35,11 @@ namespace SoftwareTrainingApplication.Models.Forms
             if (Tabs.Count > 1)
                 TabsResize();
         }
-        public void AddTab(WindowTab _tab)
+        private void AddTab(WindowTab _tab)
         {
             Tabs.Add(_tab);
             if (TabCount < 1)
                 OpenWindow(Tabs.First());
-
             AddTabsToPanel();
         }
         public void OpenWindow(WindowTab _tab)
@@ -53,7 +54,6 @@ namespace SoftwareTrainingApplication.Models.Forms
                 _tab.Window.Show();
                 SelectOpeningWindow();
             }
-
         }
         private void SelectOpeningWindow()
         {
@@ -86,6 +86,58 @@ namespace SoftwareTrainingApplication.Models.Forms
         {
             if (TabCount > 1)
                 TabsResize();
+        }
+
+        public void AddChatTab(Request _request)
+        {
+            AIChatWindow chatWindow = new AIChatWindow()
+            {
+                thisRequest = _request,
+            };
+            chatWindow.SetRequest(_request);
+            WindowTab tab = new WindowTab
+            {
+                ID = _request.id,
+                Title = _request.title,
+                Window = chatWindow,
+                TabImage = Resources.Chat_Message
+            };
+            AddTab(tab);
+        }
+        public void AddChatTab(WindowTab _tab)
+        {
+            (_tab.Window as AIChatWindow).SetRequest((_tab.Window as AIChatWindow).thisRequest);
+            AddTab(_tab);
+        }
+        public void AddToCurrentChatTab(Request _request, bool _canItBeClosed)
+        {
+            (Tabs.Where(b => b.ID == _request.id).First().Window as AIChatWindow).SetRequest(_request);
+            Tabs.Where(b => b.ID == _request.id).First().CanItBeClosed = _canItBeClosed;
+        }
+        public void AddCodeTab(string _title)
+        {
+            WindowTab tab = new WindowTab
+            {
+                ID = TabCount + "",
+                Title = _title,
+                Window = new CodeWindow(),
+                TabImage = Resources.Code
+            };
+            AddTab(tab);
+        }
+        public void AddCodeTab(WindowTab _tab)
+        {
+            AddTab(_tab);
+        }
+        public void AddCodeBenchTab(string _title)
+        {
+            WindowTab tab = new WindowTab
+            {
+                Title = _title,
+                Window = new CodeBenchWindow(),
+                TabImage = Resources.Blockly
+            };
+            AddTab(tab);
         }
     }
 }

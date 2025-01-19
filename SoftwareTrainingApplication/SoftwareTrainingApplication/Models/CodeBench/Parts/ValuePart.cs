@@ -166,20 +166,10 @@ namespace SoftwareTrainingApplication.Models.CodeBench.Parts
                 insidePart.OnMouseMove(e, control);
             }
 
-            // Sürükleme mesafesi 5 pikselden fazlaysa sürüklemeyi başlat
-            if (!isDragging && Math.Abs(e.Location.X - dragStartPoint.X) > 5 || Math.Abs(e.Location.Y - dragStartPoint.Y) > 5)
-            {
-                isDragging = true;
-            }
-
             if (isDragging)
             {
-                int dx = e.Location.X - dragStartPoint.X;
-                int dy = e.Location.Y - dragStartPoint.Y;
-
-                Location = (Location.X + dx, Location.Y + dy);
-                dragStartPoint = e.Location;
-
+                // Yeni konumu fare hareketine göre ayarla
+                Location = (e.Location.X - dragStartPoint.X, e.Location.Y - dragStartPoint.Y);
                 control.Invalidate(); // Formu yeniden çiz
             }
         }
@@ -190,7 +180,8 @@ namespace SoftwareTrainingApplication.Models.CodeBench.Parts
             {
                 insidePart.OnMouseUp(e);
             }
-            isDragging = false;
+
+            isDragging = false; // Sürüklemeyi durdur
         }
     }
 }

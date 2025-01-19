@@ -12,16 +12,21 @@ using System.Windows.Forms;
 
 namespace SoftwareTrainingApplication.Models.Forms.AIWindows
 {
-    public partial class frmAskNow : Form
+     partial class frmAskNow : Form
     {
-        public frmAskNow()
+        public frmAskNow(Desktop _MainDesktop)
         {
             InitializeComponent();
+            desk = _MainDesktop;
             this.TopLevel = false;
             listboxSubjects.Items.Clear();
             SubjectController.ToList().ForEach(subject => listboxSubjects.Items.Add(subject.name));
         }
-
+        Desktop desk;
+        public void SetDesktop(Desktop _MainDesktop)
+        {
+            desk = _MainDesktop;
+        }
         private async void btnCreate_Click(object sender, EventArgs e)
         {
             if (!ErrorController.CheckForInternetConnection())
@@ -30,7 +35,7 @@ namespace SoftwareTrainingApplication.Models.Forms.AIWindows
             Cursor = Cursors.WaitCursor;
             List<Chat> chats = AIController.ListChatHistory(Environment.UserName, Prompts.HowCanILearn(listboxSubjects.Text, cmboxlearnLevel.Text));
             AIController.ListChatHistory(chats, Gemini.Name, await AIController.SendRequestAndGetResponse(chats.First().message, 2));
-            DesktopController.AddChatTab(new Request { id = "", title = Text, chats = chats });
+            desk.AddChatTab(new Request { id = "", title = Text, chats = chats });
             Cursor = Cursors.Default;
         }
     }

@@ -29,7 +29,7 @@ namespace SoftwareTrainingApplication.Models.Forms.TESTS
                     Color = Color.Red,
                     Location = (100, 100),
                     Size = (60, 30),
-                    value = "Siikllemese",
+                    value = "selam",
                     info = "variable",
                     name = "Değişken",
                 }
