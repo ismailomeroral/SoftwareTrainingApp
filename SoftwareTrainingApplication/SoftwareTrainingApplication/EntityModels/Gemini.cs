@@ -9,6 +9,6 @@ namespace SoftwareTrainingApplication.EntityModels
     internal class Gemini
     {
         static public string Name { get; } = "Gemini";
-        static public string apiKey { get; } = "AIzaSyDOFtVuTUFANH03PlUouW_SNTGF5Qj8EqI";
+        static public string apiKey { get; } = "GEMINI_API_KEY";
     }
 }
